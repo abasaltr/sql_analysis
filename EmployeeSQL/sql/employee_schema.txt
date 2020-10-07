@@ -1,0 +1,36 @@
+# EmployeeDB schema diagram.
+
+departments
+-
+dept_no char(4) PK
+dept_name varchar(30)
+
+dept_emp
+-
+emp_no int FK >- employees.emp_no
+dept_no char(4) FK >- departments.dept_no
+
+dept_manager
+-
+dept_no char(4) FK >- departments.dept_no
+emp_no int FK >- employees.emp_no
+
+employees
+-
+emp_no int PK
+emp_title_id char(5) FK >- titles.title_id
+birth_date date
+first_name varchar(30)
+last_name varchar(30)
+sex char(1)
+hire_date date
+
+titles
+-
+title_id char(5) PK
+title varchar(30)
+
+salaries
+-
+emp_no int FK >- employees.emp_no
+salary int
